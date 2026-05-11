@@ -1,0 +1,14 @@
+{
+  "name": "zen-z-world-api-backend",
+  "version": "1.0.0",
+  "description": "Netlify functions backend for Zen Z World premium API tools",
+  "main": "index.js",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "form-data": "^4.0.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {}
+}

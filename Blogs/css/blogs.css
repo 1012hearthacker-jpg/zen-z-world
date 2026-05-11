@@ -1,0 +1,116 @@
+[
+  {
+    "title":"AI Se Paise Kaise Kamaye",
+    "file":"posts/ai-se-paise-kaise-kamaye.txt"
+  },
+
+  {
+    "title":"Free Website Kaise Banaye",
+    "file":"posts/free-website-kaise-banaye.txt"
+  }
+]*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#050816;
+  color:white;
+  font-family:Arial;
+  padding:20px;
+}
+
+/* Header */
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+}
+
+.header a{
+  color:cyan;
+  text-decoration:none;
+}
+
+/* Blog Grid */
+
+.blogs-container{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(250px,1fr));
+
+  gap:25px;
+}
+
+/* Blog Card */
+
+.blog-card{
+  background:#11152b;
+  padding:25px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.blog-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 20px cyan;
+}
+
+.blog-card h2{
+  margin-bottom:15px;
+  color:cyan;
+}
+
+.blog-card p{
+  color:#ccc;
+}
+
+/* Popup */
+
+.popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+
+  justify-content:center;
+  align-items:center;
+
+  padding:20px;
+}
+
+/* Popup Box */
+
+.popup-content{
+  background:#11152b;
+  width:100%;
+  max-width:800px;
+
+  padding:30px;
+  border-radius:20px;
+
+  position:relative;
+}
+
+/* Close Button */
+
+.close-btn{
+  position:absolute;
+  top:15px;
+  right:20px;
+
+  font-size:30px;
+  cursor:pointer;
+}
+
+/* Blog Text */
+
+pre{
+  white-space:pre-wrap;
+  line-height:1.8;
+  color:#ddd;
+}

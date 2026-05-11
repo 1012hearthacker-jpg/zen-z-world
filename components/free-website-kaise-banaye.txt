@@ -1,0 +1,38 @@
+Free Website Kaise Banaye — Beginner Step By Step Guide
+
+Aaj ke digital time me website hona bahut important hai.
+
+Chahe aap blog start karna chahte ho,
+business promote karna ho ya portfolio banana ho,
+website aapki online identity hoti hai.
+
+1. Free Hosting Choose Kare
+
+Aap Netlify, GitHub Pages ya Vercel jaisi free hosting
+services use kar sakte ho.
+
+2. HTML CSS Se Start Kare
+
+Basic website banane ke liye HTML structure aur CSS design
+seekhna enough hota hai.
+
+3. Responsive Design Banaye
+
+Website mobile friendly honi chahiye kyunki
+zyadatar users mobile se visit karte hain.
+
+4. SEO Optimize Kare
+
+Google me rank karne ke liye proper headings,
+keywords aur fast loading speed important hoti hai.
+
+5. Regular Content Upload Kare
+
+Website ko active rakhne ke liye blogs,
+updates aur useful content upload karte rehna chahiye.
+
+Conclusion
+
+Website banana aaj ke time me difficult nahi hai.
+Consistency aur learning ke saath koi bhi beginner
+apni professional website bana sakta hai.

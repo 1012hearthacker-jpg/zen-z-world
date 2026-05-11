@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zen Z World - Useful Tools</title>
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="css/tools.css" />
+
+  <!-- Libraries CDN: Live Server / Internet required for some tools -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/5.1.1/tesseract.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <a href="../index.html" class="logo">Zen Z <span>World</span></a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav class="nav" id="navMenu">
+      <a href="../index.html">Home</a>
+      <a href="../blogs/blogs.html">Blogs</a>
+      <a href="../vlogs/vlogs.html">Vlogs</a>
+      <a href="../youtube-links/youtube-links.html">YouTube Links</a>
+      <a href="tools.html" class="active">Tools</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="tag">Free Browser Tools</p>
+      <h1>Useful Tools Hub</h1>
+      <p>Image, PDF, QR, Voice, Text, Calculator aur AI-style tools ek hi jagah.</p>
+
+      <div class="search-box">
+        <input type="text" id="toolSearch" placeholder="Search tools..." />
+      </div>
+    </section>
+
+    <section class="tools-grid" id="toolsGrid">
+
+      <!-- OLD WORKING TOOLS -->
+      <article class="tool-card" data-name="image text ocr">
+        <h2>Image → Text OCR</h2>
+        <input type="file" id="ocrImage" accept="image/*" />
+        <button onclick="extractTextFromImage()">Extract Text</button>
+        <textarea id="ocrResult" placeholder="Extracted text will appear here..."></textarea>
+      </article>
+
+      <article class="tool-card" data-name="image converter jpg png webp">
+        <h2>Image Converter</h2>
+        <input type="file" id="convertImage" accept="image/*" />
+        <select id="convertFormat">
+          <option value="image/png">PNG</option>
+          <option value="image/jpeg">JPG</option>
+          <option value="image/webp">WEBP</option>
+        </select>
+        <button onclick="convertImage()">Convert & Download</button>
+      </article>
+
+      <article class="tool-card" data-name="image preview">
+        <h2>Image Preview</h2>
+        <input type="file" id="previewImageInput" accept="image/*" />
+        <img id="imagePreview" class="preview-img" alt="Preview" />
+      </article>
+
+      <article class="tool-card" data-name="resize image">
+        <h2>Resize Image</h2>
+        <input type="file" id="resizeImageInput" accept="image/*" />
+        <input type="number" id="resizeWidth" placeholder="Width px" />
+        <input type="number" id="resizeHeight" placeholder="Height px" />
+        <button onclick="resizeImage()">Resize & Download</button>
+      </article>
+
+      <article class="tool-card" data-name="compress image">
+        <h2>Compress Image</h2>
+        <input type="file" id="compressImageInput" accept="image/*" />
+        <input type="range" id="compressQuality" min="0.1" max="1" step="0.1" value="0.6" />
+        <small>Quality: <span id="qualityValue">0.6</span></small>
+        <button onclick="compressImage()">Compress & Download</button>
+      </article>
+
+      <article class="tool-card" data-name="pdf viewer">
+        <h2>PDF Viewer</h2>
+        <input type="file" id="pdfViewerInput" accept="application/pdf" />
+        <iframe id="pdfViewer"></iframe>
+      </article>
+
+      <article class="tool-card" data-name="pdf merge">
+        <h2>PDF Merge Basic</h2>
+        <input type="file" id="pdfMergeInput" accept="application/pdf" multiple />
+        <button onclick="mergePDFs()">Merge PDFs</button>
+      </article>
+
+      <article class="tool-card" data-name="text pdf">
+        <h2>Text → PDF</h2>
+        <textarea id="textToPdfInput" placeholder="Write text here..."></textarea>
+        <button onclick="textToPDF()">Download PDF</button>
+      </article>
+
+      <!-- NEW TOOLS -->
+      <article class="tool-card" data-name="background remover">
+        <h2>Background Remover</h2>
+        <p class="note">Basic browser version: white/simple background remove karta hai.</p>
+        <input type="file" id="bgRemoveInput" accept="image/*" />
+        <button onclick="removeWhiteBackground()">Remove Background</button>
+        <canvas id="bgCanvas" class="mini-canvas"></canvas>
+      </article>
+
+      <article class="tool-card" data-name="ai image enhancer">
+        <h2>AI Image Enhancer</h2>
+        <p class="note">Offline enhancer: brightness, contrast, sharpness style filter.</p>
+        <input type="file" id="enhanceInput" accept="image/*" />
+        <button onclick="enhanceImage()">Enhance & Download</button>
+        <canvas id="enhanceCanvas" class="mini-canvas"></canvas>
+      </article>
+
+      <article class="tool-card" data-name="qr generator">
+        <h2>QR Generator</h2>
+        <input type="text" id="qrText" placeholder="Enter text or link" />
+        <button onclick="generateQR()">Generate QR</button>
+        <div id="qrBox"></div>
+      </article>
+
+      <article class="tool-card" data-name="qr scanner">
+        <h2>QR Scanner</h2>
+        <input type="file" id="qrScanInput" accept="image/*" />
+        <button onclick="scanQR()">Scan QR</button>
+        <p id="qrScanResult" class="result"></p>
+      </article>
+
+      <article class="tool-card" data-name="pdf compressor">
+        <h2>PDF Compressor</h2>
+        <p class="note">Browser-only basic compressor: PDF re-save karta hai. Heavy compression ke liye server/API chahiye.</p>
+        <input type="file" id="pdfCompressInput" accept="application/pdf" />
+        <button onclick="compressPDF()">Compress PDF</button>
+      </article>
+
+      <article class="tool-card" data-name="jpg png webp converter">
+        <h2>JPG ↔ PNG ↔ WEBP</h2>
+        <input type="file" id="formatInput" accept="image/*" />
+        <select id="formatSelect">
+          <option value="image/jpeg">JPG</option>
+          <option value="image/png">PNG</option>
+          <option value="image/webp">WEBP</option>
+        </select>
+        <button onclick="universalImageConverter()">Convert</button>
+      </article>
+
+      <article class="tool-card" data-name="voice to text speech recognition">
+        <h2>Voice to Text</h2>
+        <button onclick="startVoiceToText()">Start Speaking</button>
+        <textarea id="voiceText" placeholder="Your voice text..."></textarea>
+      </article>
+
+      <article class="tool-card" data-name="text to speech">
+        <h2>Text to Speech</h2>
+        <textarea id="ttsText" placeholder="Type text to speak..."></textarea>
+        <button onclick="textToSpeech()">Speak</button>
+        <button onclick="stopSpeech()">Stop</button>
+      </article>
+
+      <article class="tool-card" data-name="ai chat tool">
+        <h2>AI Chat Tool</h2>
+        <p class="note">Demo AI bot. Real ChatGPT jaisa banane ke liye API key/backend chahiye.</p>
+        <input type="text" id="aiInput" placeholder="Ask something..." />
+        <button onclick="demoAIChat()">Ask</button>
+        <div id="aiChatBox" class="chat-box"></div>
+      </article>
+
+      <article class="tool-card" data-name="password generator">
+        <h2>Password Generator</h2>
+        <input type="number" id="passLength" value="12" min="6" max="40" />
+        <button onclick="generatePassword()">Generate</button>
+        <p id="passwordResult" class="result copyable"></p>
+      </article>
+
+      <article class="tool-card" data-name="color palette generator">
+        <h2>Color Palette Generator</h2>
+        <button onclick="generatePalette()">Generate Palette</button>
+        <div id="paletteBox" class="palette-box"></div>
+      </article>
+
+      <article class="tool-card" data-name="typing speed test">
+        <h2>Typing Speed Test</h2>
+        <p id="typingText">Zen Z World is a futuristic website project for useful tools.</p>
+        <textarea id="typingInput" placeholder="Type the above sentence..." oninput="checkTypingSpeed()"></textarea>
+        <p id="typingResult" class="result"></p>
+        <button onclick="resetTypingTest()">Reset</button>
+      </article>
+
+      <article class="tool-card" data-name="age calculator">
+        <h2>Age Calculator</h2>
+        <input type="date" id="birthDate" />
+        <button onclick="calculateAge()">Calculate Age</button>
+        <p id="ageResult" class="result"></p>
+      </article>
+
+      <article class="tool-card" data-name="unit converter">
+        <h2>Unit Converter</h2>
+        <input type="number" id="unitValue" placeholder="Enter value" />
+        <select id="unitType">
+          <option value="km-miles">KM → Miles</option>
+          <option value="miles-km">Miles → KM</option>
+          <option value="kg-lb">KG → Pounds</option>
+          <option value="lb-kg">Pounds → KG</option>
+          <option value="c-f">Celsius → Fahrenheit</option>
+          <option value="f-c">Fahrenheit → Celsius</option>
+        </select>
+        <button onclick="convertUnit()">Convert</button>
+        <p id="unitResult" class="result"></p>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Zen Z World | All Tools in One Place</p>
+  </footer>
+
+  <script src="js/tools.js"></script>
+</body>
+</html>

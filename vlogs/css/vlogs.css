@@ -1,0 +1,76 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#050816;
+  color:white;
+  font-family:Arial;
+  padding:20px;
+}
+
+/* Header */
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:40px;
+}
+
+.header a{
+  color:cyan;
+  text-decoration:none;
+}
+
+/* Grid */
+
+.vlogs-grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(280px,1fr));
+
+  gap:25px;
+}
+
+/* Card */
+
+.vlog-card{
+  background:#11152b;
+  border-radius:20px;
+  overflow:hidden;
+  transition:.3s;
+  cursor:pointer;
+}
+
+.vlog-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 20px cyan;
+}
+
+/* Image */
+
+.vlog-card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
+
+/* Content */
+
+.vlog-content{
+  padding:20px;
+}
+
+.vlog-content h2{
+  margin-bottom:10px;
+  color:cyan;
+}
+
+.vlog-content p{
+  color:#ccc;
+  line-height:1.6;
+}

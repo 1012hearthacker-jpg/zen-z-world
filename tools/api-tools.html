@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zen Z World - API Tools</title>
+  <link rel="stylesheet" href="css/api-tools.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="../index.html" class="logo">Zen Z <span>World</span></a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="api-tools.html" class="active">API Tools</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Premium API Tools</h1>
+      <p>Ye tools Netlify backend functions se chalenge. API key frontend me show nahi hogi.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>PDF Compress API</h2>
+        <p>Cloudmersive API key add karne ke baad PDF compress endpoint ready hai.</p>
+        <input type="file" id="pdfCompressFile" accept="application/pdf" />
+        <button onclick="compressPdfApi()">Compress PDF</button>
+        <p id="pdfCompressStatus"></p>
+      </article>
+
+      <article class="card">
+        <h2>PDF.co Editor API</h2>
+        <p>PDF par text overlay add karne ka premium API structure.</p>
+        <input type="file" id="pdfEditFile" accept="application/pdf" />
+        <input type="text" id="pdfEditText" placeholder="Text to add on PDF" />
+        <button onclick="editPdfApi()">Edit PDF</button>
+        <p id="pdfEditStatus"></p>
+      </article>
+
+      <article class="card">
+        <h2>Background Remover API</h2>
+        <p>remove.bg API key add karne ke baad real background remove hoga.</p>
+        <input type="file" id="bgRemoveFile" accept="image/*" />
+        <button onclick="removeBgApi()">Remove Background</button>
+        <p id="bgStatus"></p>
+      </article>
+
+      <article class="card">
+        <h2>AI Chat API</h2>
+        <p>OpenAI/Gemini style backend structure. API key add karke real AI chat ban sakta hai.</p>
+        <input type="text" id="chatPrompt" placeholder="Ask something..." />
+        <button onclick="aiChatApi()">Ask AI</button>
+        <div id="chatResult" class="result"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="js/api-tools.js"></script>
+</body>
+</html>
